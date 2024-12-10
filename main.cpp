@@ -5,15 +5,12 @@ using namespace std;
 
 long long int sequence_to_1 (long long int number, long quant){
     if (number == 1){
-        quant++;
         return quant;
     };
     if (number % 2 == 0){
-        cout << number << " ";
-        return sequence_to_1(number / 2, quant++);
+        return sequence_to_1(number / 2, quant+ 1);
     }else{
-        cout << number << " ";
-        return sequence_to_1((3*number) + 1, quant++);
+        return sequence_to_1((3*number) + 1, quant+ 1);
     }
 
 };
@@ -107,6 +104,7 @@ int main() {
       insert_hash(table, sequence_to_1(i, quant));
   };
   print_hash(table);
+
 
   return 0;
 }
