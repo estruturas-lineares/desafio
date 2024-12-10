@@ -3,7 +3,7 @@ using namespace std;
 #define TAM 401
 //testando com 200 items tam = 401
 
-int sequence_to_1 (int number, int quant){
+long long int sequence_to_1 (long long int number, long quant){
     if (number == 1){
         quant++;
         return quant;
@@ -22,15 +22,15 @@ int sequence_to_1 (int number, int quant){
 //lista
 class Node{
 public:
-    int data;
+    long long int data;
     Node* next;
-    Node(int d):data(d){}
+    Node(long long int d):data(d){}
 };
 
 class LinkedList{
 public:
     Node* head;
-    int tam;
+    long long int tam;
 };
 
 void initializaLinkedList(LinkedList* l){
@@ -38,7 +38,7 @@ void initializaLinkedList(LinkedList* l){
     l->tam = 0;
 };
 
-void insertLinkedList(LinkedList* list, int data){
+void insertLinkedList(LinkedList* list, long long int data){
     Node* newNode = new Node(data);
 
     newNode->next = list->head;
@@ -47,7 +47,7 @@ void insertLinkedList(LinkedList* list, int data){
 
 };
 
-int searchLinkedList(LinkedList* list, int value){
+int searchLinkedList(LinkedList* list, long long int value){
     Node* temp = list->head;
 
     while(temp && temp->data != value ){
@@ -74,18 +74,18 @@ void initialize_hash(LinkedList t[]){
     }
 };
 
-int func_hash(int value){
+int func_hash(long long int value){
     return value % TAM;
 };
 
-void insert_hash(LinkedList t[], int value){
-    int id = func_hash(value);
+void insert_hash(LinkedList t[], long long int value){
+    long long int id = func_hash(value);
     insertLinkedList(&t[id], value);
 
 };
 
-int search_hash(LinkedList t[], int value){
-    int id = func_hash(value);
+int search_hash(LinkedList t[], long long int value){
+    long long int id = func_hash(value);
     return searchLinkedList(&t[id], value);
 };
 
@@ -100,7 +100,7 @@ void print_hash(LinkedList t[]) {
 
 int main() {
 
-  int quant = 0;
+  long long int quant = 0;
   LinkedList table[TAM];
   initialize_hash(table);
   for (int i = 1; i < 200; i++){
